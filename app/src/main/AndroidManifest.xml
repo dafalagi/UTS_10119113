@@ -10,6 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UTS_10119113">
         <activity
+            android:name=".NoteDetails"
+            android:exported="false"
+            android:label="@string/title_activity_note_details"
+            android:theme="@style/Theme.UTS_10119113.NoActionBar" />
+        <activity android:name=".AddNote" />
+
+        <meta-data
+            android:name="android.support.PA"
+            android:value=".MainActivity" />
+
+        <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
@@ -20,7 +31,7 @@
         </activity>
         <activity
             android:name=".Slider"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

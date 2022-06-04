@@ -1,12 +1,20 @@
 package com.example.uts_10119113;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -17,7 +25,32 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+
+        View fragment = inflater.inflate(R.layout.fragment_home, container, false);
+
+        DatabaseHelper db = new DatabaseHelper(fragment.getContext());
+        List<Notes> notes = db.getNotes();
+        RecyclerView recycleView = fragment.findViewById(R.id.noteList);
+        recycleView.setLayoutManager(new LinearLayoutManager(fragment.getContext()));
+        NoteIndexAdapter adapter = new NoteIndexAdapter(fragment.getContext(), notes);
+
+        recycleView.setAdapter(adapter);
+
+        FloatingActionButton addNote = fragment.findViewById(R.id.btn_add);
+        addNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                toAddNote();
+            }
+        });
+
+        return fragment;
+    }
+
+    public void toAddNote()
+    {
+        Intent i = new Intent(getActivity(), AddNote.class);
+        startActivity(i);
     }
 }

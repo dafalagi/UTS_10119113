@@ -1,24 +1,33 @@
 package com.example.uts_10119113;
 
-import java.util.Date;
-
 public class Notes {
-    private String id, title, body, category;
-    private Date created_at;
+    private long id;
+    private String title, body, category, date, time;
 
-    public Notes(String id, String title, String body, String category, Date created_at) {
+    public Notes(){}
+    public Notes(String title, String body, String category, String date, String time)
+    {
+        this.title = title;
+        this.body = body;
+        this.category = category;
+        this.date = date;
+        this.time = time;
+    }
+    public Notes(long id, String title, String body, String category, String date, String time)
+    {
         this.id = id;
         this.title = title;
         this.body = body;
         this.category = category;
-        this.created_at = created_at;
+        this.date = date;
+        this.time = time;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -46,11 +55,19 @@ public class Notes {
         this.category = category;
     }
 
-    public Date getCreated_at() {
-        return created_at;
+    public String getDate() {
+        return date;
     }
 
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

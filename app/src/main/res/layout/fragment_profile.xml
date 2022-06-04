@@ -14,7 +14,7 @@
         android:fontFamily="@font/poppins_regular"
         android:text="Profil Pengembang :"
         android:textColor="#00838F"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:layout_marginTop="100dp"
         android:layout_marginStart="40dp"/>
