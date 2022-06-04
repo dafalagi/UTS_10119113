@@ -41,3 +41,7 @@ public class SliderAdapter extends PagerAdapter {
         container.removeView((View) object);
     }
 }
+
+//NIM : 10119113
+//Nama : Dafa Rizky Fahreza
+//Kelas : IF3

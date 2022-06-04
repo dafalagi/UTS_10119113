@@ -71,3 +71,7 @@ public class Notes {
         this.time = time;
     }
 }
+
+//NIM : 10119113
+//Nama : Dafa Rizky Fahreza
+//Kelas : IF3

@@ -27,3 +27,7 @@ public class SliderManager {
         return sharedPreferences.getBoolean(IS_FIRST_TIME, true);
     }
 }
+
+//NIM : 10119113
+//Nama : Dafa Rizky Fahreza
+//Kelas : IF3

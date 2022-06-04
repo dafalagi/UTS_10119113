@@ -41,9 +41,7 @@ public class SplashScreen extends AppCompatActivity {
 
     }
 }
-/*
-Dafa Rizky Fahreza
-10119113
-IF-3
-Dibuat pada : 19 April 2022
- */
+
+//NIM : 10119113
+//Nama : Dafa Rizky Fahreza
+//Kelas : IF3

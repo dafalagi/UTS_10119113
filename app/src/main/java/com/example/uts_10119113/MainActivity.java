@@ -3,17 +3,11 @@ package com.example.uts_10119113;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
@@ -55,3 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
         return false;
     }
 }
+
+//NIM : 10119113
+//Nama : Dafa Rizky Fahreza
+//Kelas : IF3

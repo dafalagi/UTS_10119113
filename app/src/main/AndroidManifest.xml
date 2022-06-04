@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UTS_10119113">
         <activity
+            android:name=".EditNote"
+            android:exported="false" />
+        <activity
             android:name=".NoteDetails"
             android:exported="false"
             android:label="@string/title_activity_note_details"

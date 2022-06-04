@@ -1,6 +1,7 @@
 package com.example.uts_10119113;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,19 +28,17 @@ public class NoteIndexAdapter extends RecyclerView.Adapter<NoteIndexAdapter.View
     @NonNull
     @Override
     public NoteIndexAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.custom_note_index, parent, false);
+        View view = inflater.inflate(R.layout.custom_notes_index, parent, false);
 
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull NoteIndexAdapter.ViewHolder holder, int position) {
-        long id = notes.get(position).getId();
         String title = notes.get(position).getTitle();
         String date = notes.get(position).getDate();
         String time = notes.get(position).getTime();
 
-        holder.id.setText(String.valueOf(id));
         holder.title.setText(title);
         holder.date.setText(date);
         holder.time.setText(time);
@@ -51,12 +50,11 @@ public class NoteIndexAdapter extends RecyclerView.Adapter<NoteIndexAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView id, title, date, time;
+        TextView title, date, time;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            id = itemView.findViewById(R.id.notesId);
             title = itemView.findViewById(R.id.notesTitle);
             date = itemView.findViewById(R.id.notesDate);
             time = itemView.findViewById(R.id.notesTime);
@@ -64,9 +62,15 @@ public class NoteIndexAdapter extends RecyclerView.Adapter<NoteIndexAdapter.View
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(), "Clicked!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(view.getContext(), NoteDetails.class);
+                    intent.putExtra("id", notes.get(getAdapterPosition()).getId());
+                    view.getContext().startActivity(intent);
                 }
             });
         }
     }
 }
+
+//NIM : 10119113
+//Nama : Dafa Rizky Fahreza
+//Kelas : IF3

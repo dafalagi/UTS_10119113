@@ -21,3 +21,7 @@ public class InfoFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_info, container, false);
     }
 }
+
+//NIM : 10119113
+//Nama : Dafa Rizky Fahreza
+//Kelas : IF3

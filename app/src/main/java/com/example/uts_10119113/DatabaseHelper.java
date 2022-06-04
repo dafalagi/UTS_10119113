@@ -13,7 +13,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
     private static final String DATABASE_NAME = "noteit";
     private static final String DATABASE_TABLE = "primarytable";
 
@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String query = "CREATE TABLE "+ DATABASE_TABLE +"("+ KEY_ID +" INT PRIMARY KEY,"+
+        String query = "CREATE TABLE "+ DATABASE_TABLE +"("+ KEY_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 KEY_TITLE +" TEXT,"+
                 KEY_BODY +" TEXT,"+
                 KEY_CATEGORY +" TEXT,"+
@@ -61,10 +61,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(KEY_DATE, note.getDate());
         contentValues.put(KEY_TIME, note.getTime());
 
-        long ID = db.insert(DATABASE_TABLE, null, contentValues);
-        Log.d("Inserted!", "ID : "+ID);
+        long id = db.insert(DATABASE_TABLE, null, contentValues);
+        Log.d("Inserted!", "ID : "+id);
 
-        return ID;
+        return id;
     }
 
     public Notes getNote(long id)
@@ -74,7 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 KEY_CATEGORY, KEY_DATE, KEY_TIME}, KEY_ID+"=?",
                 new String[]{String.valueOf(id)}, null, null, null);
 
-        if(cursor != null)
+        if(cursor.moveToFirst())
         {
             cursor.moveToFirst();
         }
@@ -111,4 +111,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return index;
     }
+
+    public int editNote(Notes note)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(KEY_TITLE, note.getTitle());
+        contentValues.put(KEY_BODY, note.getBody());
+        contentValues.put(KEY_CATEGORY, note.getCategory());
+        contentValues.put(KEY_DATE, note.getDate());
+        contentValues.put(KEY_TIME, note.getTime());
+
+        return db.update(DATABASE_TABLE, contentValues, KEY_ID+"=?", new String[]
+                {String.valueOf(note.getId())});
+    }
+
+    public void deleteNote(long id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(DATABASE_TABLE, KEY_ID+"=?", new String[]{String.valueOf(id)});
+        db.close();
+    }
 }
+
+//NIM : 10119113
+//Nama : Dafa Rizky Fahreza
+//Kelas : IF3

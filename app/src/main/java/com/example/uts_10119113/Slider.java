@@ -77,3 +77,7 @@ public class Slider extends AppCompatActivity {
         }
     };
 }
+
+//NIM : 10119113
+//Nama : Dafa Rizky Fahreza
+//Kelas : IF3
